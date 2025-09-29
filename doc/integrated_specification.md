@@ -1,15 +1,15 @@
-# AutoTimeBoxPomodoro - 包括的仕様書
+# BokuNoTodo - 包括的仕様書
 
 **作成日**: 2025-09-15
 **バージョン**: 2.0
-**プロジェクト**: AutoTimeBoxPomodoro
+**プロジェクト**: BokuNoTodo
 
 ---
 
 ## プロジェクト概要
 
 ### 目的
-複数のタスク管理手法（ポモドーロ・テクニック、タイムボックス、アイゼンハワーマトリックス、Ultradian Rhythm、Flowtime Technique等）を統合し、生産性を最大化するインテリジェントなタスク管理アプリケーションの開発。
+シンプルでありながら、AIの力を借りて生産性を最大化するTODOアプリ。複雑な機能は省き、本当に必要な機能だけに絞ることで、使いやすさを追求する。
 
 ### コア価値提案
 - **音声入力によるストレスフリーなタスク登録**
@@ -19,7 +19,7 @@
 - **振り返り機能による継続的な生産性改善**
 
 ### 要求ID
-**ATB-001** - AutoTimeBoxPomodoro - 包括的タスク管理・生産性最大化アプリ
+**BOKU-001** - BokuNoTodo - ぼくの考えた最強のTODOアプリ（AIアシスト）
 
 ---
 
@@ -51,10 +51,12 @@
 ### Phase 1: 完全ローカル版
 #### フロントエンド
 - **フレームワーク**: React + TypeScript
-- **ビルドツール**: Vite
-- **状態管理**: MobX
+- **ビルドツール**: Rspack（Vite から変更）
+- **開発ツール**: Biome（ESLint + Prettier の代替）
+- **状態管理**: Jotai または MobX
 - **スタイリング**: Tailwind CSS
 - **データ保存**: IndexedDB
+- **ルーティング・テーブル・クエリ**: Tanstack（Router/Table/Query）
 
 #### 音声・LLM統合
 - **音声入力**: Web Speech API（デフォルト）
