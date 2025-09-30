@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/src_react/src",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack://boku-no-todo/./src/*": "${webRoot}/*"
+      }
+    },
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Launch Edge against localhost",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/src_react/src",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack://boku-no-todo/./src/*": "${webRoot}/*"
+      }
+    }
+  ]
+}
