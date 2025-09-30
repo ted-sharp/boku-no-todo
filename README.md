@@ -56,10 +56,14 @@ boku-no-todo/
 ├── doc/                    # ドキュメント
 │   ├── youken.md          # 要件定義ガイドライン
 │   ├── やりたいこと.md      # 機能要求仕様書
-│   └── integrated_specification.md
+│   └── integrated_specification.md # 包括的仕様書
 ├── docs/                   # フロントエンドホスト用（予定）
-├── src_react/             # Reactソースコード（予定）
-└── src_dotnet/            # .NETソースコード（予定）
+├── src_react/             # Reactソースコード（実装済み）
+│   ├── src/               # メインソースコード
+│   ├── public/            # 静的ファイル
+│   ├── package.json       # 依存関係とスクリプト
+│   └── rspack.config.js   # ビルド設定
+└── src_dotnet/            # .NETソースコード（将来実装予定）
 ```
 
 ## 🎯 タスク管理手法の統合
@@ -76,6 +80,61 @@ boku-no-todo/
 - **Ultradian Rhythm** - 90分集中 + 20分休憩
 - **Flowtime Technique** - 集中が切れるまで作業する柔軟方式
 
+## 💻 開発環境
+
+### 動作環境
+- **Windows 11** + **Git Bash (MSYS2)** 環境で開発
+- **Node.js 18+** 必須
+- **npm** パッケージマネージャー
+
+### 環境固有の注意事項
+- **MSYS2環境**: Windows上Git Bashでの開発を想定
+- **パス指定**: Windows形式 (`C:\\path\\to\\file`) で統一
+- **改行コード**: LFを推奨（Gitの`core.autocrlf`設定で管理）
+
+## 🛠️ セットアップ手順
+
+```bash
+# 1. リポジトリをクローン
+git clone <repository-url>
+cd boku-no-todo
+
+# 2. Reactプロジェクトのセットアップ
+cd src_react
+npm install
+
+# 3. 開発サーバー起動
+npm run dev
+# ブラウザで http://localhost:3000 を開く
+
+# 4. ビルドテスト
+npm run build
+
+# 5. コードチェック
+npm run lint          # Biomeでリントチェック
+npm run format        # コードフォーマット
+npm run typecheck     # TypeScript型チェック
+```
+
+### MSYS2 (Git Bash) 環境でのコマンド例
+```bash
+# ディレクトリ移動（MSYS2でも通常のcdでOK）
+cd src_react
+
+# npmコマンド（Node.jsがWindows版でもMSYS2から正常実行可能）
+npm run dev
+npm run build
+
+# ファイル操作
+ls -la                # Unixコマンドが使用可能
+mkdir -p new_dir      # ディレクトリ作成
+
+# Git操作（MSYS2のGitで最適化）
+git status
+git add .
+git commit -m "commit message"
+```
+
 ## 🚀 今後の展望
 
 - 音声入力のブラウザAPI実装
@@ -83,6 +142,18 @@ boku-no-todo/
 - Googleサービス連携
 - n8n連携による自動化（LLMが自動化可能と判断したタスクの自動処理）
 - 振り返り機能の充実（日次・週次・月次）
+
+## 🔧 開発状況
+
+### 現在のステータス
+- ✅ **基本プロジェクト構造** - 完成
+- ✅ **React + TypeScript環境** - 完成
+- ✅ **Rspack + Biome設定** - 完成
+- ✅ **ビルド・開発サーバー** - 動作確認済み
+- 🚧 **TODO機能実装** - 作業中
+- 🚧 **音声入力機能** - 未着手
+- 🚧 **AI統合** - 未着手
+- 🚧 **ポモドーロタイマー** - 未着手
 
 ## 📄 ライセンス
 

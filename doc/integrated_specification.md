@@ -1,8 +1,9 @@
 # BokuNoTodo - 包括的仕様書
 
-**作成日**: 2025-09-15
-**バージョン**: 2.0
+**作成日**: 2025-09-29
+**バージョン**: 2.1
 **プロジェクト**: BokuNoTodo
+**最終更新**: 2025-09-29 - 基本プロジェクト構造完成、開発環境情報追加
 
 ---
 
@@ -778,10 +779,10 @@ AutoTimeBoxPomodoro/
 ## 成功指標・評価基準
 
 ### Phase 1 成功指標
-- **機能完成度**: 全Milestone達成率 100%
+- **シンプルさ**: 機能を絞り込み、学習コストを最小化
 - **パフォーマンス**: TODO 100個でも快適動作（<3秒レスポンス）
 - **音声認識精度**: 成功率 >80%（日本語環境）
-- **ユーザビリティ**: 新規ユーザー30分で基本操作習得可能
+- **ユーザビリティ**: 新規ユーザー15分で基本操作習得可能（よりシンプル化）
 - **安定性**: 1週間連続使用でデータロス0件
 
 ### 長期目標（Phase 3完了時）
@@ -793,6 +794,70 @@ AutoTimeBoxPomodoro/
 
 ---
 
-**最終更新**: 2025-09-15
-**承認状況**: レビュー待ち
-**次期アクション**: Phase 1実装開始準備
+## 💻 開発環境情報
+
+### 動作環境
+- **OS**: Windows 11
+- **シェル**: Git Bash (MSYS2)
+- **Node.js**: 18.0.0 以上
+- **パッケージマネージャー**: npm
+
+### 環境固有の考慮事項
+#### MSYS2 (Git Bash) 環境
+- **パス指定**: Windows形式 (`C:\\path\\to\\file`) で統一
+- **コマンド実行**: UnixコマンドとWindowsアプリの混在使用可能
+- **改行コード**: LFを推奨（Gitの`core.autocrlf`設定で管理）
+- **ファイル権限**: Windows権限システムとUnix風権限の混在
+
+#### 使用可能コマンド
+```bash
+# ディレクトリ操作
+cd src_react
+ls -la
+mkdir -p new_directory
+
+# Node.js / npm（Windows版Node.jsをMSYS2から実行）
+npm install
+npm run dev
+npm run build
+
+# Git（MSYS2版Gitで最適化）
+git status
+git add .
+git commit -m "message"
+```
+
+### 実装済みプロジェクト構造
+```
+boku-no-todo/
+├── src_react/                     # Reactプロジェクト（実装済み）
+│   ├── package.json               # 依存関係とスクリプト
+│   ├── tsconfig.json             # TypeScript設定
+│   ├── biome.json                # Biome設定（ESLint+Prettier代替）
+│   ├── rspack.config.js          # Rspackビルド設定
+│   ├── src/
+│   │   ├── App.tsx               # メインReactコンポーネント
+│   │   ├── index.tsx             # エントリーポイント
+│   │   └── index.css             # スタイル（手動CSS）
+│   └── public/
+│       └── index.html            # HTMLテンプレート
+├── doc/                       # ドキュメント
+└── README.md                  # プロジェクト概要
+```
+
+### 現在の実装状況 (2025-09-29)
+- ✅ **基本プロジェクト構造** - 完成
+- ✅ **React + TypeScript環境** - 完成
+- ✅ **Rspack + Biome設定** - 完成
+- ✅ **ビルド・開発サーバー** - 動作確認済み
+- ✅ **初期ランディングページ** - 作成済み
+- 🚧 **TODO機能実装** - 未着手
+- 🚧 **音声入力機能** - 未着手
+- 🚧 **AI統合** - 未着手
+- 🚧 **ポモドーロタイマー** - 未着手
+
+---
+
+**最終更新**: 2025-09-29
+**承認状況**: 基本環境構築完成
+**次期アクション**: TODO機能の実装開始
